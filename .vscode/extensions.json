@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "abumalick.vscode-nvm",
+    "arcanis.vscode-zipfs",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint"
+  ]
+}
