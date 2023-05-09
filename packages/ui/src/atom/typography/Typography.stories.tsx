@@ -38,7 +38,7 @@ export const Text: Story = {
     weight: "regular",
   },
   parameters: {
-    controls: { exclude: ["as", "className"] },
+    controls: { exclude: ["as", "className", "variant"] },
   },
   render: (args) => (
     <>

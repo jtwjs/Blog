@@ -1,2 +1,3 @@
-export * from "./button";
-export * from "./typography";
+import "./tailwind.css";
+
+export * from "./atom";
