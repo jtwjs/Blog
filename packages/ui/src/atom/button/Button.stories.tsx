@@ -9,7 +9,7 @@ const meta: Meta<typeof Button> = {
   component: Button,
   tags: ["autodocs"],
   parameters: {
-    controls: { exclude: ["className", "IconOnly", "onClick"] },
+    controls: { exclude: ["className", "IconOnly", "onClick", "variant"] },
     componentSource: {
       code: 'export default "This is my code"',
       language: "typescript",
