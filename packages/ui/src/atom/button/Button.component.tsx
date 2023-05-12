@@ -1,93 +1,92 @@
-import classNames from "classnames";
-import type { ButtonHTMLAttributes } from "react";
+import { VariantProps, cva, cx } from "class-variance-authority";
+import { ButtonHTMLAttributes, forwardRef, ForwardedRef } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "outlined" | "ghost";
-type ButtonSize = "sm" | "md" | "lg" | "xl";
-type ButtonState = "default" | "hover";
+import { cn } from "../../utils";
 
-const ButtonVariantClasses: Record<
-  ButtonVariant,
-  Record<ButtonState, string>
-> = {
-  primary: {
-    default: "btn-primary",
-    hover: "btn-primary-hover",
-  },
-  secondary: {
-    default: "btn-secondary",
-    hover: "btn-secondary-hover",
-  },
-  outlined: {
-    default: "btn-outlined",
-    hover: "btn-outlined-hover",
-  },
-  ghost: {
-    default: "btn-ghost",
-    hover: "btn-ghost-hover",
-  },
-};
+const buttonVariants = cva(
+  "flex items-center rounded px-[8px] font-bold focus:outline-none whitespace-nowrap select-none transition-all ease-in focus:ring-4 focus:ring-blue-100 dark:focus:ring-gray-100 dark:focus:ring-opacity-20",
+  {
+    variants: {
+      variant: {
+        primary: "bg-brand text-white hover:bg-shade",
+        secondary: "bg-border text-primary hover:bg-tertiary",
+        outlined: "bg-white text-brand border border-brand hover:bg-tint",
+        ghost: "text-primary, hover: text-secondary",
+        icon: "justify-center rounded-full",
+      },
+      fit: { true: "w-full justify-center" },
+      size: {
+        sm: "h-8 text-sm",
+        md: "h-10 text-sm",
+        lg: "h-12 text-md",
+        xl: "h-[55px] text-lg",
+      },
+    },
+    compoundVariants: [
+      {
+        variant: "icon",
+        size: "sm",
+        class: "h-8 w-8",
+      },
+      {
+        variant: "icon",
+        size: "md",
+        class: "h-10 w-10",
+      },
+      {
+        variant: "icon",
+        size: "lg",
+        class: "h-11 w-11",
+      },
+      {
+        variant: "icon",
+        size: "xl",
+        class: "h-12 w-12",
+      },
+    ],
+    defaultVariants: {
+      variant: "primary",
+      fit: false,
+      size: "md",
+    },
+  }
+);
 
-const ButtonSizeClasses: Record<ButtonSize, string> = {
-  sm: "btn-sm",
-  md: "btn-md",
-  lg: "btn-lg",
-  xl: "btn-xl",
-};
-
-const ButtonIconSizeClasses: Record<ButtonSize, string> = {
-  sm: "btn-icon-sm",
-  md: "btn-icon-md",
-  lg: "btn-icon-lg",
-  xl: "btn-icon-xl",
-};
-
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  variant: ButtonVariant;
-  size?: ButtonSize;
-  fit?: boolean;
+export interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   label: string;
   IconOnly?: React.ReactElement;
-  disabled?: boolean;
 }
 
-export const Button = ({
-  className,
-  variant,
-  size = "md",
-  fit = false,
-  IconOnly,
-  disabled = false,
-  label,
-  ...buttonProps
-}: ButtonProps) => {
-  const ButtonVariantClassName = ButtonVariantClasses[variant];
-  const ButtonIconSizeClassName = ButtonIconSizeClasses[size];
+export const Button = forwardRef(
+  (
+    {
+      className,
+      variant = "primary",
+      size,
+      fit,
+      label,
+      IconOnly,
+      ...buttonProps
+    }: ButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>
+  ) => {
+    const variantValue = IconOnly ? "icon" : variant;
 
-  return (
-    <button
-      {...buttonProps}
-      className={classNames(
-        "btn-base",
-        [ButtonVariantClassName.default],
-        className,
-        {
-          [classNames("w-full", "justify-center")]: fit,
-          [ButtonSizeClasses[size]]: !IconOnly,
-          [classNames(
-            ButtonIconSizeClassName,
-            "justify-center",
-            "rounded-full"
-          )]: IconOnly,
-          [ButtonVariantClassName.hover]: !disabled,
-          [classNames("opacity-40", "cursor-not-allowed")]: disabled,
-        }
-      )}
-    >
-      <span className={classNames({ "sr-only": IconOnly })}>{label}</span>
-      {IconOnly ? (
-        <IconOnly.type {...IconOnly.props} size={size === "sm" ? 20 : 24} />
-      ) : null}
-    </button>
-  );
-};
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          buttonVariants({ variant: variantValue, size, fit, className })
+        )}
+        {...buttonProps}
+      >
+        <span className={cx({ "sr-only": IconOnly })}>{label}</span>
+        {IconOnly ? (
+          <IconOnly.type {...IconOnly.props} size={size === "sm" ? 20 : 24} />
+        ) : null}
+      </button>
+    );
+  }
+);
