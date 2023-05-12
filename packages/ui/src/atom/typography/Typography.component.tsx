@@ -1,33 +1,33 @@
-import classNames from "classnames";
+import { VariantProps, cva } from "class-variance-authority";
 
-type TypographyVariant = "xs" | "sm" | "md" | "lg" | "xl" | "h3" | "h2" | "h1";
+import { cn } from "../../utils";
 
-type TypographyWeightOption = "regular" | "medium" | "semibold" | "bold";
-
-type TypographyAsElement = "span" | "label";
-
-const TypographyVariantClasses: Record<TypographyVariant, string> = {
-  xs: "text-xs",
-  sm: "text-sm",
-  md: "text-md",
-  lg: "text-lg",
-  xl: "text-xl",
-  h3: "text-h3",
-  h2: "text-h2",
-  h1: "text-h1",
-};
-
-const TypographyWeightClasses: Record<TypographyWeightOption, string> = {
-  regular: "font-normal",
-  medium: "font-medium",
-  semibold: "font-semibold",
-  bold: "font-bold",
-};
-
-interface TypographyProps {
-  as?: TypographyAsElement;
-  variant: TypographyVariant;
-  weight?: TypographyWeightOption;
+const typographyVariants = cva("", {
+  variants: {
+    variant: {
+      xs: "text-xs",
+      sm: "text-sm",
+      md: "text-md",
+      lg: "text-lg",
+      xl: "text-xl",
+      h3: "text-h3",
+      h2: "text-h2",
+      h1: "text-h1",
+    },
+    weight: {
+      regular: "font-normal",
+      medium: "font-medium",
+      semibold: "font-semibold",
+      bold: "font-bold",
+    },
+  },
+  defaultVariants: {
+    weight: "regular",
+  },
+});
+export interface TypographyProps
+  extends VariantProps<typeof typographyVariants> {
+  as?: "span" | "label";
   className?: string;
   children: string | React.ReactNode;
 }
@@ -35,27 +35,17 @@ interface TypographyProps {
 export const Typography = ({
   as,
   variant,
-  weight = "regular",
+  weight,
   className,
   children,
 }: TypographyProps) => {
-  const TypographyVariantClassName = TypographyVariantClasses[variant];
-  const TypographyWeightClassName = TypographyWeightClasses[weight];
-
-  const isHeading = variant.startsWith("h");
+  const isHeading = variant?.startsWith("h");
   const Component =
     as || ((isHeading ? variant : "p") as keyof JSX.IntrinsicElements);
 
   return (
     <Component
-      className={classNames(
-        TypographyVariantClassName,
-        TypographyWeightClassName,
-        className,
-        {
-          "font-bold": isHeading,
-        }
-      )}
+      className={cn(typographyVariants({ variant, weight, className }))}
     >
       {children}
     </Component>
