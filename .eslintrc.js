@@ -94,6 +94,7 @@ module.exports = {
           "object",
         ],
         alphabetize: { order: "asc", caseInsensitive: true },
+        "newlines-between": "always",
       },
     ],
 
