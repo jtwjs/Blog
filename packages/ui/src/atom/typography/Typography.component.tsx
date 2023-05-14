@@ -1,4 +1,4 @@
-import { VariantProps, cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "../../utils";
 
@@ -25,20 +25,18 @@ const typographyVariants = cva("", {
     weight: "regular",
   },
 });
-export interface TypographyProps
-  extends VariantProps<typeof typographyVariants> {
+interface TypographyProps extends VariantProps<typeof typographyVariants> {
   as?: "span" | "label";
   className?: string;
   children: string | React.ReactNode;
 }
-
-export const Typography = ({
+export default function Typography({
   as,
   variant,
   weight,
   className,
   children,
-}: TypographyProps) => {
+}: TypographyProps) {
   const isHeading = variant?.startsWith("h");
   const Component =
     as || ((isHeading ? variant : "p") as keyof JSX.IntrinsicElements);
@@ -50,4 +48,4 @@ export const Typography = ({
       {children}
     </Component>
   );
-};
+}
