@@ -2,7 +2,7 @@ import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { AiFillGithub } from "react-icons/ai";
 
-import { Button } from "./Button.component";
+import Button from "./Button.component";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",

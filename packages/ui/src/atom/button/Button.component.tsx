@@ -1,5 +1,7 @@
-import { VariantProps, cva, cx } from "class-variance-authority";
-import { ButtonHTMLAttributes, forwardRef, ForwardedRef } from "react";
+"use client";
+
+import { cva, type VariantProps } from "class-variance-authority";
+import { forwardRef, type ButtonHTMLAttributes } from "react";
 
 import { cn } from "../../utils";
 
@@ -59,34 +61,32 @@ export interface ButtonProps
   IconOnly?: React.ReactElement;
 }
 
-export const Button = forwardRef(
-  (
-    {
-      className,
-      variant = "primary",
-      size,
-      fit,
-      label,
-      IconOnly,
-      ...buttonProps
-    }: ButtonProps,
-    ref: ForwardedRef<HTMLButtonElement>
-  ) => {
-    const variantValue = IconOnly ? "icon" : variant;
+export default forwardRef<HTMLButtonElement, ButtonProps>(function Button(
+  {
+    className,
+    variant = "primary",
+    size,
+    fit,
+    label,
+    IconOnly,
+    ...buttonProps
+  },
+  forwardedRef
+) {
+  const variantValue = IconOnly ? "icon" : variant;
 
-    return (
-      <button
-        ref={ref}
-        className={cn(
-          buttonVariants({ variant: variantValue, size, fit, className })
-        )}
-        {...buttonProps}
-      >
-        <span className={cx({ "sr-only": IconOnly })}>{label}</span>
-        {IconOnly ? (
-          <IconOnly.type {...IconOnly.props} size={size === "sm" ? 20 : 24} />
-        ) : null}
-      </button>
-    );
-  }
-);
+  return (
+    <button
+      ref={forwardedRef}
+      className={cn(
+        buttonVariants({ variant: variantValue, size, fit, className })
+      )}
+      {...buttonProps}
+    >
+      <span className={cn({ "sr-only": IconOnly })}>{label}</span>
+      {IconOnly ? (
+        <IconOnly.type {...IconOnly.props} size={size === "sm" ? 20 : 24} />
+      ) : null}
+    </button>
+  );
+});
