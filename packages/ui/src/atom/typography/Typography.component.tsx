@@ -1,6 +1,5 @@
+import { cn } from "@jtwjs/cn";
 import { cva, type VariantProps } from "class-variance-authority";
-
-import { cn } from "../../utils";
 
 const typographyVariants = cva("", {
   variants: {

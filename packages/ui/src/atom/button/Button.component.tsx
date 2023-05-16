@@ -1,9 +1,8 @@
 "use client";
 
+import { cn } from "@jtwjs/cn";
 import { cva, type VariantProps } from "class-variance-authority";
 import { forwardRef, type ButtonHTMLAttributes } from "react";
-
-import { cn } from "../../utils";
 
 const buttonVariants = cva(
   "flex items-center rounded px-[8px] font-bold focus:outline-none whitespace-nowrap select-none transition-all ease-in focus:ring-4 focus:ring-blue-100 dark:focus:ring-gray-100 dark:focus:ring-opacity-20",

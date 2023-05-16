@@ -14,10 +14,14 @@
       "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    @apply text-black;
+    @apply text-black text-md;
   }
 
   button:disabled {
     @apply opacity-40 cursor-not-allowed;
+  }
+
+  input {
+    outline: none;
   }
 }
