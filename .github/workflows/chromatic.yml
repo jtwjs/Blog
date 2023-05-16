@@ -2,8 +2,6 @@ name: "Chromatic Deployment"
 
 on:
   push:
-    branches:
-      - develop
     paths:
       - "packages/ui/**"
 
@@ -21,3 +19,4 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          workingDir: packages/ui
