@@ -23,9 +23,13 @@ jobs:
       - name: Monorepo install
         uses: ./.github/actions/yarn
 
+      - name: Build Storybook
+        run: yarn run build-storybook
+
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
           workingDir: packages/ui
+          storybookBuildDir: storybook-static
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
