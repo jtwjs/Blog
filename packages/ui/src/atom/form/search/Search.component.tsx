@@ -1,9 +1,9 @@
 "use client";
 
+import { cn } from "@jtwjs/cn";
 import { forwardRef, useRef, type HTMLAttributes } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
-import { cn } from "../../../utils";
 import { Input } from "../input";
 
 export interface SearchProps extends HTMLAttributes<HTMLInputElement> {
