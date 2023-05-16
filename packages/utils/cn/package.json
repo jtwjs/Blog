@@ -1,0 +1,9 @@
+{
+  "name": "@jtwjs/cn",
+  "main": "./src/index.ts",
+  "packageManager": "yarn@3.5.1",
+  "dependencies": {
+    "clsx": "^1.2.1",
+    "tailwind-merge": "^1.12.0"
+  }
+}
