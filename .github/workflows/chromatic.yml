@@ -2,22 +2,26 @@ name: "Chromatic Deployment"
 
 on:
   push:
-    branches:
-      - develop
     paths:
       - "packages/ui/**"
 
 jobs:
-  test:
+  Chromatic-CI:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
 
-      - name: monorepo install
+      - name: Monorepo install
         uses: ./.github/actions/yarn
 
-      - uses: chromaui/action@v1
+      - name: Build Storybook
+        run: yarn workspace @jtwjs/ui run build-storybook
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
         with:
+          workingDir: packages/ui
+          storybookBuildDir: storybook-static
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
