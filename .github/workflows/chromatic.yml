@@ -24,9 +24,7 @@ jobs:
         uses: ./.github/actions/yarn
 
       - name: Build Storybook
-        run: yarn run build-storybook
-        with:
-          workingDir: packages/ui
+        run: yarn workspace @jtwjs/ui run build-storybook
 
       - name: Publish to Chromatic
         uses: chromaui/action@v1
