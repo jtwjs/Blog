@@ -6,11 +6,11 @@ on:
       - "packages/ui/**"
 
 jobs:
-  test:
+  Chromatic-CI:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [16.x]
 
     steps:
       - uses: actions/checkout@v1
@@ -26,6 +26,6 @@ jobs:
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
+          workingDir: packages/ui
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          workingDir: packages/ui
