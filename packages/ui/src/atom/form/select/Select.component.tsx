@@ -12,7 +12,6 @@ import {
 import { AiFillCaretDown } from "react-icons/ai";
 
 import useSelectKeyTrap from "./useSelectKeyTrap";
-
 export type Option = {
   label: string;
   value: string;
@@ -141,7 +140,7 @@ function SelectContent({ children, className }: SelectContentProps) {
       aria-label={label}
       aria-hidden={!isOpen}
       // eslint-disable-next-line no-warning-comments
-      //TODO focus item 상수화
+      //TODO focus item 상수화..
       aria-activedescendant={isOpen ? "focus_item" : ""}
     >
       {children}
