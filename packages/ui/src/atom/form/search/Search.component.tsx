@@ -45,7 +45,7 @@ export default forwardRef<HTMLInputElement, SearchProps>(function Search(
       <Input
         ref={forwardedRef}
         id={inputId.current}
-        className="ps-10"
+        className={cn("ps-10 rounded-3xl")}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
