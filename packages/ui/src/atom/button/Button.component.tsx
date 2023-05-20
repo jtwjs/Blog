@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@jtwjs/cn";
+import { cn } from "@jtwjs/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 
