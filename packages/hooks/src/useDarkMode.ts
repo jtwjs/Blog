@@ -1,4 +1,4 @@
-import { Storage } from "@jtwjs/cn";
+import { Storage } from "@jtwjs/utils";
 import { useState, useMemo, useCallback, useEffect } from "react";
 
 import useMediaQuery from "./useMediaQuery";

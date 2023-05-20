@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@jtwjs/cn";
+import { cn } from "@jtwjs/utils";
 import { forwardRef, useRef, type HTMLAttributes } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@jtwjs/cn";
+import { cn } from "@jtwjs/utils";
 import { VariantProps, cva } from "class-variance-authority";
 
 const switchVariants = cva(
