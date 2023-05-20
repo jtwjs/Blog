@@ -14,8 +14,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@jtwjs/cn": "workspace:^",
     "@jtwjs/hooks": "workspace:^",
+    "@jtwjs/utils": "workspace:^",
     "autoprefixer": "^10.4.14",
     "class-variance-authority": "^0.6.0",
     "postcss": "^8.4.23",

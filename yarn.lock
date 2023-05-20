@@ -2102,7 +2102,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jtwjs/blog@workspace:apps/blog"
   dependencies:
+    "@jtwjs/hooks": "workspace:^"
     "@jtwjs/ui": "workspace:^"
+    "@jtwjs/utils": "workspace:^"
     "@swc/core": ^1.3.57
     "@swc/jest": ^0.2.26
     "@testing-library/cypress": ^9.0.0
@@ -2124,18 +2126,10 @@ __metadata:
     postcss: 8.4.23
     react: 18.2.0
     react-dom: 18.2.0
+    react-icons: ^4.8.0
     tailwindcss: 3.3.2
     typescript: 5.0.4
     whatwg-fetch: ^3.6.2
-  languageName: unknown
-  linkType: soft
-
-"@jtwjs/cn@workspace:^, @jtwjs/cn@workspace:packages/utils/cn":
-  version: 0.0.0-use.local
-  resolution: "@jtwjs/cn@workspace:packages/utils/cn"
-  dependencies:
-    clsx: ^1.2.1
-    tailwind-merge: ^1.12.0
   languageName: unknown
   linkType: soft
 
@@ -2143,6 +2137,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jtwjs/hooks@workspace:packages/hooks"
   dependencies:
+    "@jtwjs/utils": "workspace:^"
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
     "@typescript-eslint/eslint-plugin": ^5.57.1
@@ -2162,8 +2157,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@jtwjs/ui@workspace:packages/ui"
   dependencies:
-    "@jtwjs/cn": "workspace:^"
     "@jtwjs/hooks": "workspace:^"
+    "@jtwjs/utils": "workspace:^"
     "@storybook/addon-a11y": ^7.0.9
     "@storybook/addon-actions": ^7.0.9
     "@storybook/addon-controls": ^7.0.9
@@ -2200,6 +2195,15 @@ __metadata:
     tailwindcss: ^3.3.2
     typescript: ^5.0.2
     vite: ^4.3.2
+  languageName: unknown
+  linkType: soft
+
+"@jtwjs/utils@workspace:^, @jtwjs/utils@workspace:packages/utils":
+  version: 0.0.0-use.local
+  resolution: "@jtwjs/utils@workspace:packages/utils"
+  dependencies:
+    clsx: ^1.2.1
+    tailwind-merge: ^1.12.0
   languageName: unknown
   linkType: soft
 

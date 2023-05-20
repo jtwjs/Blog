@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@jtwjs/cn";
+import { cn } from "@jtwjs/utils";
 import { forwardRef, type InputHTMLAttributes } from "react";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
