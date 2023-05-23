@@ -1,7 +1,17 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { cn } from "@jtwjs/utils";
+import { Noto_Sans_KR, Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Layout } from "@/components/layout";
+import { AppProvider } from "@/libs/provider";
+
+const notoSans = Noto_Sans_KR({
+  weight: ["400", "500", "700"],
+  variable: "--font-notosans",
+  subsets: ["latin"],
+});
+
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -14,8 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
-      <body className={inter.className}>{children}</body>
+    <html lang="ko" className={cn(notoSans.variable, inter.variable)}>
+      <body className="font-notosans" suppressHydrationWarning>
+        <AppProvider>
+          <Layout>{children}</Layout>
+        </AppProvider>
+      </body>
     </html>
   );
 }
