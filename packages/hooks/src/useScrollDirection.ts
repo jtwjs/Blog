@@ -9,10 +9,8 @@ interface UseScrollDirection {
   direction: ScrollDirection;
 }
 
-export default function useScrollDirection(): UseScrollDirection {
+export default function useScrollDirection(threshold = 50): UseScrollDirection {
   const [scrollDir, setScrollDir] = useState(ScrollDirection.up);
-
-  const threshold = 50;
 
   useEffect(() => {
     let previousScrollYPosition = window.scrollY;
@@ -43,9 +41,7 @@ export default function useScrollDirection(): UseScrollDirection {
     window.addEventListener("scroll", onScroll);
 
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  console.log(document.documentElement.scrollTop);
+  }, [threshold]);
 
   return {
     direction: scrollDir,
