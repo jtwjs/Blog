@@ -34,7 +34,6 @@ export const Heading: Story = {
 
 export const Text: Story = {
   args: {
-    variant: "xs",
     weight: "regular",
   },
   parameters: {
@@ -42,7 +41,12 @@ export const Text: Story = {
   },
   render: (args) => (
     <>
-      <Typography {...args}>인생은 속도보다 방향이다.</Typography>
+      <Typography {...args} variant="xxs">
+        인생은 속도보다 방향이다.
+      </Typography>
+      <Typography {...args} variant="xs">
+        인생은 속도보다 방향이다.
+      </Typography>
       <Typography {...args} variant="sm">
         인생은 속도보다 방향이다.
       </Typography>
