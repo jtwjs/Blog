@@ -1,4 +1,4 @@
-import { useFixedBodyEl } from "@jtwjs/hooks";
+import { useFixedScroll } from "@jtwjs/hooks";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
@@ -15,7 +15,7 @@ export default function useMobileNavbar(): UseMobileNavbar {
   const { isShowMobileNav, handleCloseMobileNav, handleToggleMobileNav } =
     useShowMobileNav();
 
-  useFixedBodyEl(isShowMobileNav);
+  useFixedScroll(isShowMobileNav);
 
   useEffect(() => {
     handleCloseMobileNav();
