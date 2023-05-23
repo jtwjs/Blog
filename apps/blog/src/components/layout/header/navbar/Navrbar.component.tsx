@@ -1,23 +1,46 @@
 "use client";
 
 import { cn } from "@jtwjs/utils";
+import { motion } from "framer-motion";
 
 import { NavItem } from "./item";
 
 import { DOM_ID } from "@/constants/id";
+import { useBreakPoint } from "@/hooks";
 import { NAV_MENU_LIST } from "@/static/header";
 import { useShowMobileNav } from "@/store";
 
 export default function Navbar() {
   const { isShowMobileNav } = useShowMobileNav();
+  const isDesktop = useBreakPoint("lg");
+
+  const variants = isDesktop
+    ? {
+        active: {
+          height: "max-content",
+        },
+        inActive: {
+          height: "max-content",
+        },
+      }
+    : {
+        active: {
+          height: "max-content",
+        },
+        inActive: {
+          height: 0,
+        },
+      };
 
   return (
-    <nav
+    <motion.nav
       id={DOM_ID.NAV_MENU}
       className={cn(
-        "absolute top-[calc(100%+1px)] left-0 w-full max-h-0 bg-white overflow-hidden transition-all ease-in-out duration-1000 lg:relative lg:max-h-max lg:bg-transparent",
-        isShowMobileNav && "max-h-[calc(100vh-250px)]"
+        "absolute top-[calc(100%+1px)] left-0 w-full bg-white overflow-hidden lg:relative lg:h-full lg:bg-transparent"
       )}
+      animate={isShowMobileNav ? "active" : "inActive"}
+      transition={{ duration: 0.5 }}
+      variants={variants}
     >
       <ul
         className={cn(
@@ -28,6 +51,6 @@ export default function Navbar() {
           <NavItem key={path} label={label} path={path} />
         ))}
       </ul>
-    </nav>
+    </motion.nav>
   );
 }
