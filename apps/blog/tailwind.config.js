@@ -5,10 +5,17 @@ module.exports = {
   ...baseConfig,
   content: {
     files: [
-      "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-      "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-      "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+      "./src/**/*.{js,ts,jsx,tsx,mdx}",
       "../../packages/ui/**/*.{js,ts,jsx,tsx}",
     ],
+  },
+  theme: {
+    extend: {
+      ...baseConfig.theme.extend,
+      fontFamily: {
+        notosans: "var(--font-notosans)",
+        inter: "var(--font-inter)",
+      },
+    },
   },
 };
