@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  a[aria-current="page"] > * {
+    @apply text-shade;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-full min-w-full w-screen  px-5 md:max-w-full md:min-w-full md:w-screen lg:min-w-0 lg:max-w-[1280px] lg:mx-auto lg:px-10;
+  }
+
+  .main {
+    @apply min-h-[calc(100vh-(3.875rem+11rem))] lg:min-h-[calc(100vh-(6.25rem+11rem))];
+  }
+}
+
+@layer utilities {
+  .h-header {
+    @apply h-[3.875rem] lg:h-[6.25rem];
+  }
+  .h-footer {
+    @apply h-[11rem];
+  }
+}
