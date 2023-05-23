@@ -84,11 +84,6 @@ module.exports = {
           },
         ],
       },
-      screens: {
-        sm: "0px",
-        md: "768px",
-        lg: "1200px",
-      },
       zIndex: {
         hide: "-1",
         auto: "auto",
