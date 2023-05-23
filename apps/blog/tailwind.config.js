@@ -16,6 +16,11 @@ module.exports = {
         notosans: "var(--font-notosans)",
         inter: "var(--font-inter)",
       },
+      screens: {
+        sm: "0px",
+        md: "768px",
+        lg: "1200px",
+      },
     },
   },
 };
