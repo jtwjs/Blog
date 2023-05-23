@@ -13,7 +13,7 @@ const buttonVariants = cva(
         secondary: "bg-border text-primary hover:bg-tertiary",
         outlined: "bg-white text-brand border border-brand hover:bg-tint",
         ghost: "text-primary, hover: text-secondary",
-        icon: "justify-center rounded-full",
+        icon: "justify-center rounded-full border border-border",
       },
       fit: { true: "w-full justify-center" },
       size: {
@@ -84,7 +84,10 @@ export default forwardRef<HTMLButtonElement, ButtonProps>(function Button(
     >
       <span className={cn({ "sr-only": IconOnly })}>{label}</span>
       {IconOnly ? (
-        <IconOnly.type {...IconOnly.props} size={size === "sm" ? 20 : 24} />
+        <IconOnly.type
+          {...IconOnly.props}
+          className={cn("dark:fill-white", { "w-5 h-5": size === "lg" })}
+        />
       ) : null}
     </button>
   );

@@ -9,7 +9,6 @@ import DarkModeSwitch, {
 const meta: Meta<typeof DarkModeSwitch> = {
   title: "Switch/DarkMode",
   component: DarkModeSwitch,
-  tags: ["autodocs"],
   parameters: {
     controls: {
       exclude: ["onToggle"],

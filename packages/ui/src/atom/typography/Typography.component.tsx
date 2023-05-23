@@ -1,9 +1,10 @@
 import { cn } from "@jtwjs/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const typographyVariants = cva("", {
+const typographyVariants = cva("text-black dark:text-white", {
   variants: {
     variant: {
+      xxs: "text-xxs",
       xs: "text-xs",
       sm: "text-sm",
       md: "text-md",
@@ -21,6 +22,7 @@ const typographyVariants = cva("", {
     },
   },
   defaultVariants: {
+    variant: "md",
     weight: "regular",
   },
 });
