@@ -2803,6 +2803,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@emotion/is-prop-valid", [\
+        ["npm:0.8.8", {\
+          "packageLocation": "./.yarn/cache/@emotion-is-prop-valid-npm-0.8.8-261a0f2426-bb7ec6d48c.zip/node_modules/@emotion/is-prop-valid/",\
+          "packageDependencies": [\
+            ["@emotion/is-prop-valid", "npm:0.8.8"],\
+            ["@emotion/memoize", "npm:0.7.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@emotion/memoize", [\
+        ["npm:0.7.4", {\
+          "packageLocation": "./.yarn/cache/@emotion-memoize-npm-0.7.4-5648cf11b8-4e3920d4ec.zip/node_modules/@emotion/memoize/",\
+          "packageDependencies": [\
+            ["@emotion/memoize", "npm:0.7.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@emotion/use-insertion-effect-with-fallbacks", [\
         ["npm:1.0.1", {\
           "packageLocation": "./.yarn/cache/@emotion-use-insertion-effect-with-fallbacks-npm-1.0.1-730758c66c-700b6e5bbb.zip/node_modules/@emotion/use-insertion-effect-with-fallbacks/",\
@@ -3545,6 +3564,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cypress", "npm:12.12.0"],\
             ["eslint", "npm:8.40.0"],\
             ["eslint-config-next", "virtual:55390eeee18c16ccde6366aa376e62ddf676f2be00394a2283e15bb56d804160afbabfca54262a6ae59417330a01e8fbe00877813b2072ea2ede6089b7284ce8#npm:13.4.1"],\
+            ["framer-motion", "virtual:55390eeee18c16ccde6366aa376e62ddf676f2be00394a2283e15bb56d804160afbabfca54262a6ae59417330a01e8fbe00877813b2072ea2ede6089b7284ce8#npm:10.12.12"],\
             ["jest", "virtual:2f78daabdf141bc8d246316b6d9aebea0346c3d22d3e5063512d3082639580632679a0fc5526b8d099be7941fdc108948f2d0691681cefafc66ff05e78869176#npm:29.5.0"],\
             ["msw", "virtual:55390eeee18c16ccde6366aa376e62ddf676f2be00394a2283e15bb56d804160afbabfca54262a6ae59417330a01e8fbe00877813b2072ea2ede6089b7284ce8#npm:1.2.1"],\
             ["next", "virtual:55390eeee18c16ccde6366aa376e62ddf676f2be00394a2283e15bb56d804160afbabfca54262a6ae59417330a01e8fbe00877813b2072ea2ede6089b7284ce8#npm:13.4.1"],\
@@ -10850,6 +10870,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/fraction.js-npm-4.2.0-28efe4afc7-8c76a6e21d.zip/node_modules/fraction.js/",\
           "packageDependencies": [\
             ["fraction.js", "npm:4.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["framer-motion", [\
+        ["npm:10.12.12", {\
+          "packageLocation": "./.yarn/cache/framer-motion-npm-10.12.12-114bb0d199-28ff7202b7.zip/node_modules/framer-motion/",\
+          "packageDependencies": [\
+            ["framer-motion", "npm:10.12.12"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:55390eeee18c16ccde6366aa376e62ddf676f2be00394a2283e15bb56d804160afbabfca54262a6ae59417330a01e8fbe00877813b2072ea2ede6089b7284ce8#npm:10.12.12", {\
+          "packageLocation": "./.yarn/__virtual__/framer-motion-virtual-e12a8242ab/0/cache/framer-motion-npm-10.12.12-114bb0d199-28ff7202b7.zip/node_modules/framer-motion/",\
+          "packageDependencies": [\
+            ["framer-motion", "virtual:55390eeee18c16ccde6366aa376e62ddf676f2be00394a2283e15bb56d804160afbabfca54262a6ae59417330a01e8fbe00877813b2072ea2ede6089b7284ce8#npm:10.12.12"],\
+            ["@emotion/is-prop-valid", "npm:0.8.8"],\
+            ["@types/react", "npm:18.2.6"],\
+            ["@types/react-dom", "npm:18.2.4"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:5ff3c120bf4df235378457fd98cb5727d5e73d3aa7292eae39d0d9469b18cf27ce33aaccc6585a61d81f6b90ffc8fa4de358fa85e65c62db43db83096746ece8#npm:18.2.0"],\
+            ["tslib", "npm:2.5.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
