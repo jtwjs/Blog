@@ -1,4 +1,5 @@
 import "whatwg-fetch";
+import "@testing-library/jest-dom";
 
 import server from "./mocks/server";
 // 테스트 전 목킹한 msw 서버와 연결
